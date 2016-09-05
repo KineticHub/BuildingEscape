@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright ShiftingDiscord 2016.
 
 #include "BuildingEscape.h"
 #include "OpenDoor.h"
@@ -11,8 +11,6 @@ UOpenDoor::UOpenDoor()
 	// off to improve performance if you don't need them.
 	bWantsBeginPlay = true;
 	PrimaryComponentTick.bCanEverTick = true;
-
-	// ...
 }
 
 
@@ -20,8 +18,10 @@ UOpenDoor::UOpenDoor()
 void UOpenDoor::BeginPlay()
 {
 	Super::BeginPlay();
-
-	// ...
+    
+    
+    
+    
 	
 }
 
@@ -31,6 +31,9 @@ void UOpenDoor::TickComponent( float DeltaTime, ELevelTick TickType, FActorCompo
 {
 	Super::TickComponent( DeltaTime, TickType, ThisTickFunction );
 
-	// ...
+    if (PressurePlate->IsOverlappingActor(PawnActor)) {
+        AActor* Owner = GetOwner();
+        FRotator NewRotation = FRotator(0.0f, OpenAngle, 0.0f);
+        Owner->SetActorRotation(NewRotation);
+    }
 }
-
