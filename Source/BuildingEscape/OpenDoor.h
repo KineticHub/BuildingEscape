@@ -24,5 +24,8 @@ public:
 private:
     UPROPERTY(VisibleAnywhere) float OpenAngle = 90.0f;
     UPROPERTY(EditAnywhere) ATriggerVolume* PressurePlate;
-    UPROPERTY(EditAnywhere) AActor* PawnActor;  // remember pawn inherits from actor, so could use APawn
+    
+	AActor* PawnActor;  // remember pawn inherits from actor, so could use APawn
+
+	void OpenDoor();
 };
